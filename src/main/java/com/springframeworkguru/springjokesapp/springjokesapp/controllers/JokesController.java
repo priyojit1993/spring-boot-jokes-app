@@ -1,12 +1,13 @@
 package com.springframeworkguru.springjokesapp.springjokesapp.controllers;
 
 import com.springframeworkguru.springjokesapp.springjokesapp.services.JokesService;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 @RequestMapping("/jokes")
 public class JokesController {
 
@@ -20,7 +21,7 @@ public class JokesController {
     public String getJokes(Model model) {
         String jokes = jokesService.getrandomJokes();
         model.addAttribute("joke", jokes);
-        return "index";
+        return "jokes/list";
     }
 
 }
